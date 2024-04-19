@@ -1,0 +1,46 @@
+#include<iostream>
+
+class ABC; //Forward declaration of class
+class XYZ
+{
+int a;
+public:
+void setvalue(int x)
+{
+a=x;
+}
+
+friend void max(ABC,XYZ);
+};
+class ABC
+{
+int b;
+public:
+void setvalue(int y)
+{
+b=y;
+}
+friend void max(ABC,XYZ);
+};
+void max(ABC p,XYZ q)
+{
+if(p.b>q.a)
+{
+std::cout<<"b is max";
+}
+else
+{
+std::cout<<"a is max";
+}
+}
+int main()
+{
+ABC p;
+XYZ q;
+int a,b;
+std::cin>>a>>b;
+p.setvalue(b);
+q.setvalue(a);
+max(p,q);
+return 0;
+}
